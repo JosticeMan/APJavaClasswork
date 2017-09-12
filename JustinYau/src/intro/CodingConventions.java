@@ -16,7 +16,6 @@ public class CodingConventions {
 	
 	public CodingConventions()
 	{
-		//In Java, fields are insustantiated with 
 		name = "Justin Yau";
 		description = "Is a student";
 	}
