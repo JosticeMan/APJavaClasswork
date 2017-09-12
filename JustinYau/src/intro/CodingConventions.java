@@ -10,9 +10,15 @@ public class CodingConventions {
 	*Therefore, the name of the class must match the name of the constructor. 
 	*/
 	
+	//fields
+	private String name;
+	private String description;
+	
 	public CodingConventions()
 	{
-		
+		//In Java, fields are insustantiated with 
+		name = "Justin Yau";
+		description = "Is a student";
 	}
 	
 }
