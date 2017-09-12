@@ -7,6 +7,14 @@ public class IntroName {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		//fields
+		private String name;
+		private String description;
+		
+		//Declaration of a local variable
+		//Notice the use of the word "new"
+		//New must be used to call a constructor
+		CodingConventions conventionsInstance = new CodingConventions();
 	}
 
 }
