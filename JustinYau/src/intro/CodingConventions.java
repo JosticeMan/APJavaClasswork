@@ -16,7 +16,6 @@ public class CodingConventions {
 	
 	public CodingConventions()
 	{
-		//Testing
 		name = "Justin Yau";
 		description = "Is a student";
 	}
