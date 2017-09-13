@@ -16,6 +16,7 @@ public class CodingConventions {
 	
 	public CodingConventions()
 	{
+		//In Java, fields are instantiated in a constructor
 		name = "Justin Yau";
 		description = "Is a student";
 	}
