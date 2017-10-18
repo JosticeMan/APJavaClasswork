@@ -4,7 +4,7 @@ public class ObjectArrays {
 	
 	public ObjectArrays() {
 		
-		Object[] people = new Person[20];
+		Object[] people = new Object[20];
 		populate(people);
 		people[0] = new Thing("coffee maker");
 		for(Object p: people) {
