@@ -15,6 +15,7 @@ public class Person {
 	private Borough home;
 	private Hobby hobby;
 	private Person[] friends;
+	private String nickname;
 	
 	public Person(String fn, String ln, Borough b) {
 		firstName = fn;
@@ -22,8 +23,46 @@ public class Person {
 		home = b;
 		hobby = Hobby.randomHobby();
 		friends = new Person[3];
+		nickname = createNickname(firstName);
 	}
 	
+	/**
+	 * Returns the name up to the second vowel (NOT INCLUDING THE SECOND VOWEL) and the whole name if there is less than 2 vowels
+	 * @param name
+	 * @return
+	 */
+	//JAVA IS PASS-BY_VALUE
+	//MEANING THE PARAMETERS OF A METHOD ARE JUST VALUES AND NOT REFERENCES
+	//SO IF YOU CHANGE THOSE VALUES, THE ORIGINAL OBJECT IS UNAFFECTED
+	//IN THIS CASE, 'name' WILL NOT BE CHANGED. IN FACT, NOTHING IS CHANGED
+	//this.firstName via name
+	public static String createNickname(String name) {
+		String[] vowels = {"a", "e", "i", "o", "u"};
+		boolean foundVowel = false;
+		for(int i = 0; i < name.length(); i++) {
+			for(int t = 0; t < vowels.length; t++) {
+				if(name.substring(i, i+1).equalsIgnoreCase(vowels[t])) {
+					if(!foundVowel) {
+						foundVowel = true;
+					}
+					else {
+						return name.substring(0, i);
+					}
+				}
+			}
+		}
+		return name;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+		nickname = createNickname(firstName);
+	}
+
 	/**
 	 * Chooses friends from People based on who is of !same class! of this instance and
 	 * the same hobbies. 
@@ -97,7 +136,7 @@ public class Person {
 	}
 	
 	public String toString() {
-		return "My name is " + firstName + " " + lastName + " and I live in " + home + "." + " I like to do a lot " + hobby + ".";
+		return "My name is " + firstName + " " + lastName + ". I am also called " + nickname +" and I live in " + home + "." + " I like to do a lot of " + hobby + ".";
 	}
 	
 }

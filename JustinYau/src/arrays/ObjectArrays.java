@@ -6,8 +6,9 @@ public class ObjectArrays {
 		
 		Object[] people = new Object[20];
 		populate(people);
-		System.out.println(testShuffling());
-		/* people[0] = new Thing("coffee maker");
+		//System.out.println(testShuffling());
+		//people[0] = new Thing("coffee maker");
+		/*
 		for(Object p: people) {
 			System.out.println(p);
 		}
