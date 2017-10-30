@@ -39,6 +39,7 @@ public class CaveRoom {
 	 * 		"There are no doors, you are trapped in here." 
 	 */
 	public void setDirections() {
+		directions = "";
 		boolean doorFound = false;
 		for(int i = NORTH; i < WEST + 1; i++) {
 			if(doors[i] != null) {
