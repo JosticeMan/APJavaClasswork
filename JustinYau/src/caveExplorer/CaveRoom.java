@@ -42,8 +42,8 @@ public class CaveRoom {
 		boolean doorFound = false;
 		for(int i = NORTH; i < WEST + 1; i++) {
 			if(doors[i] != null) {
-				directions += "\n   There is a " + doors[i].getDescription() + " to " + toDirection(i) + ". " + doors[i].getDetails();
 				doorFound = true;
+				directions += "\n   There is a " + doors[i].getDescription() + " to " + toDirection(i) + ". " + doors[i].getDetails();
 			}
 		}
 		if(!doorFound) {
@@ -178,6 +178,10 @@ public class CaveRoom {
 
 	public void setDefaultContents(String defaultContents) {
 		this.defaultContents = defaultContents;
+	}
+
+	public Door getDoor(int direction) {
+		return doors[direction];
 	}
 
 	

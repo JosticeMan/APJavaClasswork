@@ -15,10 +15,10 @@ public class CaveExplorer {
 		CaveRoom.setUpCaves();
 		
 		inventory = new Inventory();
-		startExploring;
+		startExploring();
 	}
 	
-	public static startExploring() {
+	public static void startExploring() {
 		while(playing) {
  			print(inventory.getDescription());
  			print(currentRoom.getDescription());
