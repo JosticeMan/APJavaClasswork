@@ -83,7 +83,7 @@ public class CaveRoom {
 		anotherRoom.addRoom(oppositeDirection(direction), this, door);
 	}
 	
-	private int oppositeDirection(int direction) {
+	public int oppositeDirection(int direction) {
 		//int[] opposites = {2, 3, 0, 1};
 		//return opposites[direction];
 		return (direction + 2)%4;
@@ -97,26 +97,54 @@ public class CaveRoom {
 	
 	public void interpretInput(String input) {
 		while(!isValid(input)) {
-			System.out.println("You can only enter 'w', 'a', 's', or 'd'");
+			printAllowedEntry();
 			input = CaveExplorer.in.nextLine();
 		}
-		int direction = determineDirection(input);
+		int direction = determineDirection(input, validKeys());
 		//Task: convert user input into a direction
 		//don't use more than one
-		goToRoom(direction);
+		respondToKey(direction);
 	}
 	
-	private void goToRoom(int direction) {
+	/**
+	 * Override to add more keys
+	 * @return
+	 */
+	public String validKeys() {
+		return "wdsa";
+	}
+	
+	/**
+	 * Override to change the key types that the user can enter
+	 */
+	public void printAllowedEntry() {
+		System.out.println("You can only enter 'w', 'a', 's', or 'd'");
+	}
+	
+	public void respondToKey(int direction) {
 		//First, protect against null pointer exception
 		//(user cannot go through a non existent door)
-		if(borderingRooms[direction] != null && 
-				doors[direction] != null) {
-			CaveExplorer.currentRoom.leave();
-			CaveExplorer.currentRoom = borderingRooms[direction];
-			CaveExplorer.currentRoom.enter();
-			CaveExplorer.inventory.updateMap();
+		if(direction < 4) {
+			if(borderingRooms[direction] != null && 
+					doors[direction] != null) {
+				CaveExplorer.currentRoom.leave();
+				CaveExplorer.currentRoom = borderingRooms[direction];
+				CaveExplorer.currentRoom.enter();
+				CaveExplorer.inventory.updateMap();
+			}
+		} 
+		else {
+			performAction(direction);
 		}
 	} 
+
+	/**
+	 * Override to give response to keys other than wasd
+	 * @param direction
+	 */
+	public void performAction(int direction) {
+		System.out.println("That key does nothing.");
+	}
 
 	/**
 	 * This will be where your group sets up all the caves
@@ -126,7 +154,7 @@ public class CaveRoom {
 		//ALL OF THIS CODE CAN BE CHANGED
 		//1. Decide how big your caves should be
 		CaveExplorer.caves = new CaveRoom[5][5];
-		//2. Populate with caves and a defualt description: hint: when starting, use coordinates (helps debugging)
+		//2. Populate with caves and a default description: hint: when starting, use coordinates (helps debugging)
 		for(int row = 0; row < CaveExplorer.caves.length; row++) {
 			//PLEASE PAY ATTENTION TO THE DIFFERENCE:
 			for(int col = 0; col < CaveExplorer.caves[row].length; col++) {
@@ -141,7 +169,7 @@ public class CaveRoom {
 		//4. Set your starting room:
 		CaveExplorer.currentRoom = CaveExplorer.caves[0][1];
 		CaveExplorer.currentRoom.enter();
-		//5. Set up dooors
+		//5. Set up doors
 		CaveRoom[][] c = CaveExplorer.caves;
 		c[0][1].setConnection(SOUTH, c[1][1], new Door());
 		/**
@@ -152,12 +180,12 @@ public class CaveRoom {
 		 */
 	}
 	
-	public int determineDirection(String input) {
-		return "wdsa".indexOf(input);
+	public int determineDirection(String input, String key) {
+		return key.indexOf(input);
 	}
 	
-	private boolean isValid(String input) {
-		String validEntries = "wdsa";
+	public boolean isValid(String input) {
+		String validEntries = validKeys();
 		return validEntries.indexOf(input) > - 1 && input.length() == 1;
 	}
 
@@ -185,6 +213,4 @@ public class CaveRoom {
 		return doors[direction];
 	}
 
-	
-	
 }
