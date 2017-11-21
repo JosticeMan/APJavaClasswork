@@ -52,7 +52,7 @@ public class Predator extends ReproductionAnimal {
 	//It will return a ReproductionAnimal which may be converted into a string from its toString() method
 	
 	//Review the method at line 34. Suppose a Predator lives in an environment where
-	//where there is a capacity for 100 aniamls and there are currently 50 Prey living in 
+	//where there is a capacity for 100 animals and there are currently 50 Prey living in 
 	//the environment. How would this situation affect the outcome of this method?
 	//What if there are only 10 prey? 80?
 	
