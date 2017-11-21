@@ -14,6 +14,12 @@ public class Predator extends ReproductionAnimal {
 		setMaxLitterSize(3);
 	}
 
+	public static final String[] PREDATORS = {"wolf", "bear", "lion", "bobcat"};
+	
+	public String getName() {
+		return PREDATORS[(int)(Math.random()*PREDATORS.length)];
+	}
+	
 	public static void main(String[] args) {
 		Wilderness wilderness = new Wilderness("A Wooded Area", 10);
 		Predator p = new Predator(wilderness);
