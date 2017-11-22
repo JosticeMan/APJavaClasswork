@@ -43,7 +43,7 @@ public class Prey extends ReproductionAnimal {
 	
 	//In lines 26 and 31, change the max litter size for Prey. What happens to the simulation when the litter size is greater? Lesser?
 	
-	//By increasing the litter size, the prey were able to reproduce faster than the wolves can eat them. 
+	//By increasing the litter size, the prey were able to reproduce faster than the wolves can eat them and outnumber the plants faster, starving faster. 
 	
 	//In line 10, change the starting numPredators. What happens if you start with more Predators? What happens if you start with less?
 	
