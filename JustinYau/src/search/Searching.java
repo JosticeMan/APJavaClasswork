@@ -75,6 +75,8 @@ public class Searching {
 		}
 		return -1;
 		/*
+		Original Answer: 
+		**Recursive one is above**
 		int low = 0;
 		int high = searchThis.length;
 		while(low <= high) {
