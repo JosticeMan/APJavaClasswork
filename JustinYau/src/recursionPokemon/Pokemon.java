@@ -53,6 +53,7 @@ public class Pokemon {
 	public void attack(Pokemon target, Attack attack){
 		if(Math.random() < .9){
 			 attack.attack(target);
+			 
 			 levelUp(new Effect() { 
 				 
 				 public void happen() {
@@ -68,6 +69,7 @@ public class Pokemon {
 				 }
 				 
 			 });
+			 
 			 System.out.println("The attack hit");
 		}else{
 			 System.out.println("The attack missed");
