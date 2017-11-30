@@ -17,7 +17,7 @@ public class ArtificialForLoop {
 	}
 	
 	public static void forLoop(int n, Action s) {
-		if(n == 0) {
+		if(n <= 0) {
 			return;
 		}
 		else {
@@ -26,6 +26,7 @@ public class ArtificialForLoop {
 			return;
 		}
 	}
+	
 }
 	
 
