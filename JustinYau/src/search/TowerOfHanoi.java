@@ -5,14 +5,17 @@ public class TowerOfHanoi {
 	private static String[] posts = {{""}, {""}, {""}};
 	
 	public static void main(String[] args) {
-		//Starting stack will be 0, Helper stack will be 1, End stack will be 2
+		//Starting stack will be 0 "a", Helper stack will be 1 "b", End stack will be 2 "c"
 		int numberOfDiscs = 7;
 		//Populate the starting stack with the appropriate number of discs
 		for(int j = numberOfDiscs; j >= 0; j--) {
 			posts[0] += j;
 		}
-		hanoi(7, "a", "b", "c");
 		
+		//Solve the puzzle
+		hanoi(numberOfDiscs, "a", "b", "c");
+		
+		//Print out the result of the tower
 		int tower = 1;
 		for(String post: posts) {
 			System.out.println(tower + post);
@@ -35,7 +38,7 @@ public class TowerOfHanoi {
 	public static void moveTopDisk(String start, String end) {
 		int startIndex = indexOfLetter(start);
 		int endIndex = indexOfLetter(end);
-		posts[endIndex] += posts[startIndex].substring(0, posts[startIndex].length - 1);
+		posts[endIndex] += posts[startIndex].substring(0, posts[startIndex].length - 1); 
 	}
 	
 	public static int indexOfLetter(String letter) {
