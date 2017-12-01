@@ -2,34 +2,40 @@ package search;
 
 public class TowerOfHanoi {
 
-	private static String[] post;
+	private static String[] posts = {{""}, {""}, {""}};
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		//Starting stack will be 0, Helper stack will be 1, End stack will be 2
 		int numberOfDiscs = 7;
-		for(int i = 0; i < numberOfDiscs; i++) {
-			for(int j = numberOfDiscs; j >= 0; j--) {
-				post[i] += j;
-			}
+		//Populate the starting stack with the appropriate number of discs
+		for(int j = numberOfDiscs; j >= 0; j--) {
+			posts[0] += j;
 		}
 		hanoi(7, "a", "b", "c");
+		
+		int tower = 1;
+		for(String post: posts) {
+			System.out.println(tower + post);
+			tower++;
+		}
 	}
 	
 	public static void hanoi(int disc, String start, String helper, String end) {
 		if(disc == 1) {
-			moveDisk(start, end); //Move smallest disc to end post
+			moveTopDisk(start, end); //Move smallest disc to end post
 		}
 		else {
 			hanoi(disc - 1, start, end, helper); //Move the 2nd largest stack to the helper post
-			moveDisk(start, end); //Move largest disc to end post
+			moveTopDisk(start, end); //Move largest disc to end post
 			hanoi(disc -1, helper, start, end); //Move the 2nd largest stack to the end post
 		}
 		
 	}
 	
-	public static void moveDisk(String start, String end) {
+	public static void moveTopDisk(String start, String end) {
 		int startIndex = indexOfLetter(start);
 		int endIndex = indexOfLetter(end);
+		posts[endIndex] += posts[startIndex].substring(0, posts[startIndex].length - 1);
 	}
 	
 	public static int indexOfLetter(String letter) {
