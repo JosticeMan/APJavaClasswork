@@ -8,7 +8,9 @@ public class TowerOfHanoi {
 		// TODO Auto-generated method stub
 		int numberOfDiscs = 7;
 		for(int i = 0; i < numberOfDiscs; i++) {
-			post[i] = "";
+			for(int j = numberOfDiscs; j >= 0; j--) {
+				post[i] += j;
+			}
 		}
 		hanoi(7, "a", "b", "c");
 	}
@@ -28,7 +30,6 @@ public class TowerOfHanoi {
 	public static void moveDisk(String start, String end) {
 		int startIndex = indexOfLetter(start);
 		int endIndex = indexOfLetter(end);
-		post[startIndex][post.length - 1]; 
 	}
 	
 	public static int indexOfLetter(String letter) {
