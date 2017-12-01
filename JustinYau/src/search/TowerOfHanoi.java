@@ -3,10 +3,13 @@ package search;
 public class TowerOfHanoi {
 
 	private static String[] posts = {"", "", ""};
+	private static int count;
 	
 	public static void main(String[] args) {
 		//Starting stack will be 0 "a", Helper stack will be 1 "b", End stack will be 2 "c"
-		int numberOfDiscs = 7;
+		int numberOfDiscs = 3;
+		count = 0;
+		
 		//Populate the starting stack with the appropriate number of discs
 		for(int j = numberOfDiscs; j > 0; j--) {
 			posts[0] += j;
@@ -17,6 +20,7 @@ public class TowerOfHanoi {
 		
 		//Print out the result of the tower
 		printTower();
+		System.out.println("It took " + count + " moves.");
 	}
 	
 	public static void printTower() {
@@ -28,6 +32,7 @@ public class TowerOfHanoi {
 	}
 	
 	public static void hanoi(int disc, String start, String helper, String end) {
+		count++;
 		if(disc == 1) {
 			moveTopDisk(start, end); //Move smallest disc to end post
 			printTower();
