@@ -12,10 +12,11 @@ public class MoreRecursion {
 		//System.out.println(mystery5(3543));
 		//System.out.println(mystery6(10));
 		//System.out.println(mystery7(30,18));
-		System.out.println(mystery(10));
-		System.out.println(mystery2(10));
-		System.out.println(mystery3(10));
-		System.out.println(mystery4(10));
+		//System.out.println(mystery(10));
+		//System.out.println(mystery2(10));
+		//System.out.println(mystery3(10));
+		//System.out.println(mystery4(10));
+		System.out.println(fibonacci(10));
 	}
 	
 	/*
@@ -121,7 +122,6 @@ public class MoreRecursion {
 	  return mystery7(x + 10, y - 3);
 	 }
 	}
-	*/
 	
 	public static int mystery(int x)
 	{
@@ -159,4 +159,15 @@ public class MoreRecursion {
 	  }
 	  return (x + mystery4(x - 1));
 	 }
+	*/
+	
+	public static int fibonacci(int n) {
+		if(n <= 1) {
+			return 1;
+		}
+		else {
+			return fibonacci(n - 1) + fibonacci(n - 2);
+		}
+	}
+	
 }

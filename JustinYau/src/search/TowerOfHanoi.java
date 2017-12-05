@@ -19,7 +19,6 @@ public class TowerOfHanoi {
 		hanoi(numberOfDiscs, "a", "b", "c");
 		
 		//Print out the result of the tower
-		printTower();
 		System.out.println("It took " + count + " moves.");
 	}
 	
