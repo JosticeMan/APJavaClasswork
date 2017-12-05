@@ -15,6 +15,7 @@ public class TowerOfHanoi {
 			posts[0] += j;
 		}
 		
+		printTower();
 		//Solve the puzzle
 		hanoi(numberOfDiscs, "a", "b", "c");
 		
